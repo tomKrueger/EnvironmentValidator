@@ -15,7 +15,7 @@ namespace EnvironmentValidator
                 exceptionMsg = result.Exception.Message;
             }
 
-            string line = string.Format($"{DateTime.UtcNow}|{result.Command.CommandType}|{result.Status}|{exceptionMsg}");
+            string line = string.Format($"{DateTime.UtcNow}|{result.Command.CommandType}|{result.Status}|{result.ElapsedMilliseconds}|{exceptionMsg}");
             System.Diagnostics.Debug.WriteLine(line);
         }
     }

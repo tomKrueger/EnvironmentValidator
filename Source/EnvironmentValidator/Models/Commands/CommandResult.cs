@@ -16,6 +16,12 @@ namespace EnvironmentValidator.Models.Commands
         public ResultStatus Status { get; set; }    
 
         public Exception Exception { get; set; }
+
+        public DateTime StartTime { get; set; }
+
+        public DateTime EndTime { get; set; }
+
+        public long ElapsedMilliseconds { get; set; }
     }
 
     public enum ResultStatus
