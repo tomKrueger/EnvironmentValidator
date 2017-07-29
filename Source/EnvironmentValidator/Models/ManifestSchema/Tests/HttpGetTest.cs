@@ -1,4 +1,5 @@
 ﻿using EnvironmentValidator.Models.Commands;
+using System;
 using System.Xml.Serialization;
 
 namespace EnvironmentValidator.Models.ManifestSchema.Tests
@@ -9,8 +10,19 @@ namespace EnvironmentValidator.Models.ManifestSchema.Tests
         {
             var cmd = new HttpCommand();
             cmd.Url = Url;
-            
-            // TODO: pass expectedresponsecode.
+
+            if (ExpectedResponseCode != null)
+            {
+                int expectedResponseCode;
+                if (!int.TryParse(ExpectedResponseCode, out expectedResponseCode))
+                {
+                    throw new Exception($"Invalid 'ExpectedResponseCode' in manifest.  Expecting integer.  Actual: {ExpectedResponseCode}");
+                }
+
+                cmd.ExpectedResponseCode = expectedResponseCode;
+            }
+
+
 
             return cmd;
         }

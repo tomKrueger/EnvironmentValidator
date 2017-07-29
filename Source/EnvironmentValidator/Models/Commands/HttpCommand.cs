@@ -28,7 +28,18 @@ namespace EnvironmentValidator.Models.Commands
                 var c = new HttpClient();
                 var response = await c.SendAsync(request);
 
-                response.EnsureSuccessStatusCode();
+                if (ExpectedResponseCode != null)
+                {
+                    var actualStatusCode = (int) response.StatusCode;
+                    if (actualStatusCode != ExpectedResponseCode)
+                    {
+                        throw new Exception($"Unexpected Response Status Code.  Expected:{ExpectedResponseCode} Actual: {response.StatusCode}");
+                    }
+                }
+                else
+                {
+                    response.EnsureSuccessStatusCode();
+                }
 
                 result.Status = ResultStatus.Success;
             }
@@ -42,6 +53,8 @@ namespace EnvironmentValidator.Models.Commands
         }
 
         public string Url { get; set; }
+
+        public int? ExpectedResponseCode { get; set; }
 
         private HttpMethod _httpMethod = HttpMethod.Get;
 
