@@ -1,20 +1,21 @@
-﻿using EnvironmentValidator.Models;
-using EnvironmentValidator.Models.Commands;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using EnvironmentValidator.Common;
+using EnvironmentValidator.Models;
+using EnvironmentValidator.Models.ManifestSchema;
 
 namespace EnvironmentValidator.DataAccess
 {
     public class Repository
     {
-        public Manifest GetManifest(string file, string releaseLevel)
+        public Manifest GetManifest(string filePath, string releaseLevel)
         {
-            // TODO: Read manifest from file and replace hard coded commands.
+            var manifestSchema = XmlSerializerHelper.DeserializeFromFile<ManifestSchema>(filePath);
 
             var m = new Manifest();
 
-            m.Commands.Add(new HttpCommand() { Url="http://www.google.com"});
+            foreach (var t in manifestSchema.Tests)
+            {
+                m.Commands.Add(t.GetCommand());
+            }
 
             return m;
         }

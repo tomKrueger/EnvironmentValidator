@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Manifest>
+  <Tests>
+    <HttpGet Url="http://www.google.com" />
+    <HttpGet Url="http://www.microsoft.com" />
+  </Tests>
+</Manifest>
+
