@@ -4,6 +4,7 @@
     <HttpGet Url="http://www.google.com" />
     <HttpGet Url="http://www.microsoft.com" />
     <HttpGet Url="http://www.microsoft.com/xxxzzz" ExpectedResponseCode="404" />
+    <FileExists FilePath="SampleManifest.xml" />
   </Tests>
 </Manifest>
 

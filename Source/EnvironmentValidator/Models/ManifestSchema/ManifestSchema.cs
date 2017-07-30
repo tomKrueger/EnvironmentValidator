@@ -13,6 +13,7 @@ namespace EnvironmentValidator.Models.ManifestSchema
 
         [XmlArray()]
         [XmlArrayItem(typeof(HttpGetTest), ElementName ="HttpGet")]
+        [XmlArrayItem(typeof(FileExistsTest), ElementName = "FileExists")]
         public List<ManifestTest> Tests { get; set; }
     }
 }
