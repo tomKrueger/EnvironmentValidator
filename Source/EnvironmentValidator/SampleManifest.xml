@@ -6,6 +6,13 @@
     <HttpGet Url="http://www.microsoft.com/xxxzzz" ExpectedResponseCode="404" />
     <FileExists FilePath="SampleManifest.xml" />
     <FolderExists FolderPath="c:\temp" />
+    <FileVersion ExpectedVersion="4.7.2046.0" FilePath="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\AppLaunch.exe" />
+    <FileVersion ExpectedVersion="= 4.7.2046.0" FilePath="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\AppLaunch.exe" />
+    <FileVersion ExpectedVersion=">= 4.7.2046.0" FilePath="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\AppLaunch.exe" />
+    <FileVersion ExpectedVersion="&lt;= 4.7.2046.0" FilePath="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\AppLaunch.exe" />
+    <FileVersion ExpectedVersion="LESS THAN OR EQUAL TO 4.7.2046.0" FilePath="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\AppLaunch.exe" />
+    <FileVersion ExpectedVersion="LESS THAN 4.7.2046.1" FilePath="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\AppLaunch.exe" />
+    <FileVersion ExpectedVersion="BETWEEN 4.7.2046 AND 4.8" FilePath="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\AppLaunch.exe" />
     
   </Tests>
 </Manifest>
