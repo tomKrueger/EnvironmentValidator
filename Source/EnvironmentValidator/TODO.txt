@@ -1,0 +1,16 @@
+﻿
+- Support Environment Release Level
+  Release Level is used to specify which set of validations to execute.
+  This could be for each release you specify additional tests.
+  This could be to specify the set of tests to run against a developer machine by application they are supporting to ensure their machine is ready.
+
+- Support Variables 
+  Example <SetVariable Name="AppFolder" Value="c:\Apps" />
+
+- Read config values and store in variables for use in other tests.
+  This will allow for reading of a web.config to get settings of an app and then 
+  use these values in later running tests to validate those settings.
+
+
+
+
