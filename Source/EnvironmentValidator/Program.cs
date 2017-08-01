@@ -12,7 +12,7 @@ namespace EnvironmentValidator
             // EnvironmentValidator.exe PathToManifest -s PathToEnvironmentSettingsFile
 
             var manifestFilePath = "SampleManifest.xml";
-            var releaseLevel = "";
+            var releaseLevel = "Second";
 
             Console.WriteLine("*** Environment Validator ***");
             ValidationManager vm = new ValidationManager();

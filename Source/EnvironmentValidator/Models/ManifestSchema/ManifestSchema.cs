@@ -4,14 +4,21 @@ using System.Xml.Serialization;
 
 namespace EnvironmentValidator.Models.ManifestSchema
 {
-    [XmlRoot(elementName:"Manifest")]
+    [XmlRoot(elementName: "Manifests")]
+    public class ManifestSchemas : List<ManifestSchema>
+    {
+    }
+
+    [XmlType("Manifest")]
     public class ManifestSchema
     {
         public ManifestSchema()
         {
         }
 
-        [XmlArray()]
+        [XmlAttribute()]
+        public string ReleaseLevel { get; set; }
+
         [XmlArrayItem(typeof(HttpGetTest), ElementName ="HttpGet")]
         [XmlArrayItem(typeof(FileExistsTest), ElementName = "FileExists")]
         [XmlArrayItem(typeof(FileVersionTest), ElementName = "FileVersion")]
