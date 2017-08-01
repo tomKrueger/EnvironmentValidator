@@ -35,6 +35,7 @@ namespace EnvironmentValidator.DataAccess
 
             if (manifest != null)
             {
+                // Add BasedOn first, to manifestsToReturn, so that the BasedOn tests run first.
                 if (manifest.BasedOn != null)
                 {
                     var basedOnManifests = FindManifests(manifestsToSearch, manifest.BasedOn);
