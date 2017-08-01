@@ -19,6 +19,9 @@ namespace EnvironmentValidator.Models.ManifestSchema
         [XmlAttribute()]
         public string ReleaseLevel { get; set; }
 
+        [XmlAttribute()]
+        public string BasedOn { get; set; }
+
         [XmlArrayItem(typeof(HttpGetTest), ElementName ="HttpGet")]
         [XmlArrayItem(typeof(FileExistsTest), ElementName = "FileExists")]
         [XmlArrayItem(typeof(FileVersionTest), ElementName = "FileVersion")]

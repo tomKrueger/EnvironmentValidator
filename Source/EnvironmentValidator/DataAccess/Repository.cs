@@ -13,7 +13,6 @@ namespace EnvironmentValidator.DataAccess
             var manifestSchemas = XmlSerializerHelper.DeserializeFromFile<ManifestSchemas>(filePath);
 
             var manifestSchemasForRelease = FindManifests(manifestSchemas, releaseLevel);
-            manifestSchemasForRelease.Reverse();
             
             var m = new Manifest();
 
@@ -36,6 +35,12 @@ namespace EnvironmentValidator.DataAccess
 
             if (manifest != null)
             {
+                if (manifest.BasedOn != null)
+                {
+                    var basedOnManifests = FindManifests(manifestsToSearch, manifest.BasedOn);
+                    manifestsToReturn.AddRange(basedOnManifests);
+                }
+
                 manifestsToReturn.Add(manifest);
             }
 

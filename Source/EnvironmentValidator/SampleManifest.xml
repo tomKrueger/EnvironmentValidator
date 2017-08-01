@@ -19,7 +19,13 @@
 
   <Manifest ReleaseLevel="Second">
     <Tests>
-      <HttpGet Url="http://www.google.com" />
+      <FileExists FilePath="SampleManifest.xml" />
+    </Tests>
+  </Manifest>
+
+  <Manifest ReleaseLevel="Third" BasedOn="Second">
+    <Tests>
+      <HttpGet Url="http://www.microsoft.com" />
     </Tests>
   </Manifest>
 </Manifests>
